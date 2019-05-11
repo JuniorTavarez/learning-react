@@ -1,8 +1,12 @@
-console.log('App.js is running!')
+'use strict';
+
+console.log('App.js is running!');
 
 // JSX - JavaScript XML
-var template = React.createElement("h1", {
-    id: "someid"
-  }, "This is JSX from app.js");
-  var appRoot = document.getElementById('app');
-  ReactDOM.render(template, appRoot);
+var template = React.createElement(
+  'h1',
+  null,
+  ' does this change'
+);
+var appRoot = document.getElementById('app');
+ReactDOM.render(template, appRoot);
