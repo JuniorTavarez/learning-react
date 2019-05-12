@@ -1,44 +1,62 @@
-"use strict";
+'use strict';
 
-console.log("App.js is running!");
+console.log('App.js is running!');
+
+var app = {
+  title: 'Indecision App',
+  subtitle: 'Put your life in the hands of a comupter'
+};
 
 // JSX - JavaScript XML
 var template = React.createElement(
-  "div",
+  'div',
   null,
   React.createElement(
-    "h1",
+    'h1',
     null,
-    " Indecision App"
+    '' + app.title,
+    ' '
   ),
   React.createElement(
-    "p",
+    'p',
     null,
-    "This is some info"
-  ),
-  ";"
-);
-
-var template2 = React.createElement(
-  "div",
-  null,
-  React.createElement(
-    "h1",
-    null,
-    "Junior Tavarez"
-  ),
-  React.createElement(
-    "p",
-    null,
-    " Age: 30"
-  ),
-  React.createElement(
-    "p",
-    null,
-    " Location: NorthCarolina"
+    '' + app.subtitle,
+    ' '
   )
 );
 
-var appRoot = document.getElementById("app");
+var user = {
+  name: 'Junior',
+  age: 19,
+  location: 'North Carolina'
+};
+function getLocation(location) {
+  if (location) {
+    return React.createElement(
+      'p',
+      null,
+      'Location: ',
+      location
+    );
+  }
+}
+var templateTwo = React.createElement(
+  'div',
+  null,
+  React.createElement(
+    'h1',
+    null,
+    user.name ? user.name : 'Anonymous'
+  ),
+  user.age && user.age >= 18 && React.createElement(
+    'p',
+    null,
+    ' Age: ',
+    user.age
+  ),
+  getLocation(user.location)
+);
 
-ReactDOM.render(template2, appRoot);
+var appRoot = document.getElementById('app');
+
+ReactDOM.render(templateTwo, appRoot);
